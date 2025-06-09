@@ -1,7 +1,5 @@
-plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
     namespace 'com.example.mysystem'
@@ -33,13 +31,24 @@ android {
     buildFeatures {
 
     }
+
+
 }
 
+
+//tasks.withType(JavaCompile) {
+//    options.compilerArgs += [
+//            '-Xbootclasspath/p:libs/framework.jar'
+//    ]
+//}
+
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation libs.androidx.appcompat
     implementation libs.androidx.core.ktx
     implementation libs.androidx.lifecycle.runtime.ktx
+    //compileOnly files('libs/framework.jar')
+
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
